@@ -1,0 +1,288 @@
+{
+    "house_id": 11,
+    "goals": {
+        "1": [
+            "Spoon",
+            "Bowl"
+        ],
+        "2": [
+            "Pen",
+            "GarbageCan"
+        ],
+        "3": [
+            "TissueBox",
+            "GarbageCan"
+        ],
+        "4": [
+            "Ladle",
+            "Plate"
+        ],
+        "5": [
+            "CD",
+            "DiningTable"
+        ],
+        "6": [
+            "Pencil",
+            "GarbageCan"
+        ],
+        "7": [
+            "AlarmClock",
+            "DiningTable"
+        ],
+        "8": [
+            "Bowl",
+            "ShelvingUnit"
+        ],
+        "9": [
+            "SprayBottle",
+            "ShelvingUnit"
+        ],
+        "10": [
+            "Bread",
+            "DiningTable"
+        ],
+        "11": [
+            "Pen",
+            "ShelvingUnit"
+        ],
+        "12": [
+            "CreditCard",
+            "DiningTable"
+        ],
+        "13": [
+            "Egg",
+            "DiningTable"
+        ],
+        "14": [
+            "Spatula",
+            "DiningTable"
+        ],
+        "15": [
+            "ButterKnife",
+            "Sink"
+        ],
+        "16": [
+            "Lettuce",
+            "Plate"
+        ],
+        "17": [
+            "CreditCard",
+            "CounterTop"
+        ],
+        "18": [
+            "Watch",
+            "CounterTop"
+        ],
+        "19": [
+            "Bread",
+            "DiningTable"
+        ],
+        "20": [
+            "Vase",
+            "ShelvingUnit"
+        ]
+    },
+    "spawn_objects": [
+        {
+            "objectName": "AlarmClock|surface|4|3",
+            "position": {
+                "x": 6.75,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "rotation": {
+                "x": 0.23,
+                "y": 0.0,
+                "z": -0.0
+            }
+        },
+        {
+            "objectName": "Apple|surface|6|29",
+            "position": {
+                "x": 12.25,
+                "y": 0.0,
+                "z": 7.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 90.0,
+                "z": 0.0
+            }
+        },
+        {
+            "objectName": "Book|surface|4|13",
+            "position": {
+                "x": 6.5,
+                "y": 0.0,
+                "z": 5.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 180.0,
+                "z": 0.01
+            }
+        },
+        {
+            "objectName": "Book|surface|4|7",
+            "position": {
+                "x": 4.25,
+                "y": 0.0,
+                "z": 7.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.0,
+                "z": 0.56
+            }
+        },
+        {
+            "objectName": "Book|surface|6|55",
+            "position": {
+                "x": 4.5,
+                "y": 0.0,
+                "z": 5.0
+            },
+            "rotation": {
+                "x": 0.02,
+                "y": 180.0,
+                "z": 0.12
+            }
+        },
+        {
+            "objectName": "Book|surface|7|58",
+            "position": {
+                "x": 3.75,
+                "y": 0.0,
+                "z": 1.0
+            },
+            "rotation": {
+                "x": -0.0,
+                "y": 180.0,
+                "z": 0.09
+            }
+        },
+        {
+            "objectName": "Bowl|surface|6|49",
+            "position": {
+                "x": 11.0,
+                "y": 0.0,
+                "z": 6.25
+            },
+            "rotation": {
+                "x": -0.0,
+                "y": 90.0,
+                "z": 0.0
+            }
+        },
+        {
+            "objectName": "Bowl|surface|4|5",
+            "position": {
+                "x": 7.5,
+                "y": 0.0,
+                "z": 5.25
+            },
+            "rotation": {
+                "x": -0.0,
+                "y": 0.01,
+                "z": 0.13
+            }
+        },
+        {
+            "objectName": "Bowl|surface|7|70",
+            "position": {
+                "x": 8.25,
+                "y": 0.0,
+                "z": 3.25
+            },
+            "rotation": {
+                "x": -0.0,
+                "y": 90.0,
+                "z": -0.0
+            }
+        },
+        {
+            "objectName": "Bread|surface|6|42",
+            "position": {
+                "x": 9.0,
+                "y": 0.0,
+                "z": 4.25
+            },
+            "rotation": {
+                "x": -0.0,
+                "y": 90.0,
+                "z": -0.0
+            }
+        },
+        {
+            "objectName": "ButterKnife|surface|6|33",
+            "position": {
+                "x": 9.75,
+                "y": 0.0,
+                "z": 5.0
+            },
+            "rotation": {
+                "x": 0.02,
+                "y": 90.0,
+                "z": 1.32
+            }
+        },
+        {
+            "objectName": "ButterKnife|surface|6|32",
+            "position": {
+                "x": 8.75,
+                "y": 0.0,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 90.0,
+                "z": 0.08
+            }
+        },
+        {
+            "objectName": "ButterKnife|surface|6|34",
+            "position": {
+                "x": 6.5,
+                "y": 0.0,
+                "z": 2.5
+            },
+            "rotation": {
+                "x": 0.02,
+                "y": 180.0,
+                "z": 1.32
+            }
+        },
+        {
+            "objectName": "Candle|surface|7|66",
+            "position": {
+                "x": 3.5,
+                "y": 0.0,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.08,
+                "y": 89.98,
+                "z": 0.02
+            }
+        },
+        {
+            "objectName": "Candle|surface|7|67",
+            "position": {
+                "x": 8.5,
+                "y": 0.0,
+                "z": 4.25
+            },
+            "rotation": {
+                "x": 0.14,
+                "y": 179.97,
+                "z": 0.2
+            }
+        }
+    ],
+    "start_pose": [
+        4.25,
+        0.9,
+        1.5
+    ],
+    "initial_orientation": 270.0
+}

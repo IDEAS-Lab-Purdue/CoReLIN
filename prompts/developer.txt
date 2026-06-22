@@ -1,0 +1,13 @@
+Your policy - 
+- You have to modify the environment for long-term navigation by removing the blocking obstacles out of the way while completing the given tasks and keeping the long-term cost low.
+- Early in the episode, prefer to move the low-medium "cost_to_remove_this_object" obstacles. Near the end of the episode, focus on completing remaining tasks by detouring around obstacles. Compare the value of cost_to_remove_this_object and shortest_path_cost to figure out if you should move the object or not.
+- If the scene description says that the 'times_scanned' status of a room is '0', you need to scan the room so that you can discover the path to other rooms connected to your current room.
+- Scan the room multiple times (max 3 times) to make sure you discover most of the objects kept in the room.
+- Make sure you can find at least one instance of goal object and target object in your scene description. If not, then you need to explore the environments by going to the room that has the highest likelihood of finding the objects you are looking for. Keep exploring until you discover them.
+- Revisit different rooms multiple times for scanning (scan_room) to discover hidden objects that you could not discover the first time you visited.
+- Do not trigger execute_plan until you have found a receptacle object in the scene that satisfied the given task.
+- Retrieve the goal object only after you have discovered at least one instance each of goal object and target receptacle object in your scene graph.
+- Do not optimize for immediate cost. Optimize for long-term cost based on remaining number of tasks.
+- You do not have to move all the obstacle objects on your path. You can choose to move a subset of them that are most rewarding in terms of the number of paths they block.
+- Decide whether to "interact" or "detour" for each obstacle object based on the quantities provided to you - how many tasks are left, cost of bringing the object to receptacle, the minimum cost of reaching the goal position from the receptacle, the obstacles that lie in the minimum cost path, hence pushing the cost up. 
+- When you clear the obstacles, some shortest paths become free which enable you to complete the future tasks efficiently.

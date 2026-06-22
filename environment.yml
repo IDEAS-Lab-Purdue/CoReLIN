@@ -1,4 +1,4 @@
-name: cvpr25
+name: corelin
 channels:
   - defaults
 dependencies:

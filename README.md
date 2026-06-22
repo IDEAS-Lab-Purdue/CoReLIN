@@ -1,5 +1,7 @@
 # CoReLIN: Constraint-based Reasoning for Zero-shot Lifelong Interactive Navigation
 
+**Accepted at the European Conference on Computer Vision (ECCV) 2026.**
+
 Official implementation and dataset for **“CoReLIN: Constraint-based Reasoning for Zero-shot Lifelong Interactive Navigation.”**
 
 CoReLIN addresses **Lifelong Interactive Navigation**: a mobile manipulator must complete a sequence of object-placement tasks in a partially observed, cluttered environment. When clutter blocks a route, the agent must decide whether to detour or permanently relocate an obstacle, while accounting for the effect of that decision on future tasks.
@@ -71,11 +73,11 @@ The planner makes paid API calls to an OpenAI model. API availability, model acc
 Clone the repository and create the provided Conda environment:
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
-cd <YOUR-REPOSITORY-NAME>
+git clone https://github.com/IDEAS-Lab-Purdue/CoReLIN.git
+cd CoReLIN
 
 conda env create -f environment.yml
-conda activate cvpr25
+conda activate corelin
 ```
 
 The environment file is a fully pinned development snapshot and may contain packages not required by the simulator-only release. For a different operating system or architecture, you may need to relax platform-specific pins while retaining the Python dependencies listed under `pip`.
@@ -217,7 +219,96 @@ The paper evaluates task completion, execution efficiency, and the long-term nav
 - **object interactions and navigation interactions**; and
 - **Price of Clutter (PoC):** degradation in all-pairs shortest-path distances relative to the uncluttered floorplan.
 
-The paper combines success, normalized timestep efficiency, and normalized PoC into the **Long-term Efficiency Score (LES)**. The standalone aggregation script used to produce paper-level LES tables is not included here.
+## Metric computation
+
+The `metrics/` directory contains scripts for aggregating experiment outputs and computing the metrics reported in the paper.
+
+### Expected results structure
+
+Store the raw evaluation CSV files under the root-level `results/` directory:
+
+```text
+results/
+├── ours_k/
+│   ├── r_1.csv
+│   ├── r_2.csv
+│   └── ...
+├── h_k/
+├── ours_unk/
+└── h_uk/
+```
+
+Each method directory should contain one CSV file per evaluated room count, named `r_<num_rooms>.csv`. The metric scripts currently evaluate room counts `1, 2, 3, 4, 5, 6, 7, 8, and 10`.
+
+Each CSV row is expected to contain the following fields, without a header row:
+
+```text
+success_rate,path_length,num_interacts,num_navs,perc_interacts,relative_bw,overall_poc,goal_poc,cost,timesteps
+```
+
+### Per-room metrics
+
+`metrics/per_room.py` aggregates the raw evaluation CSV files for each method and room count. It computes:
+
+- **SR:** average task success rate, normalized by the 20 goals in each episode.
+- **TS:** average execution cost.
+- **PoC:** average overall Price of Clutter.
+
+Run it from the repository root:
+
+```bash
+python metrics/per_room.py
+```
+
+The script writes the aggregated metrics to:
+
+```text
+metrics/per_room_perf.json
+```
+
+The method names and expected result directories are currently configured in `metrics/per_room.py`:
+
+```python
+names = ["ours_k", "h_k", "ours_unk", "h_uk"]
+```
+
+Edit this list when evaluating additional methods or baselines.
+
+### Lifelong Efficiency Score
+
+`metrics/new_les.py` reads `per_room_perf.json` and computes the Lifelong Efficiency Score (LES). Results are aggregated into three environment-size bins:
+
+- `1–3` rooms
+- `4–6` rooms
+- `7–10` rooms
+
+Run:
+
+```bash
+python metrics/new_les.py \
+    --json_path metrics/per_room_perf.json
+```
+
+By default, LES uses the following weights:
+
+```text
+Success rate:      0.50
+Execution cost:    0.25
+Price of Clutter:  0.25
+```
+
+The weights can be changed from the command line:
+
+```bash
+python metrics/new_les.py \
+    --json_path metrics/per_room_perf.json \
+    --w_sr 0.5 \
+    --w_ts 0.25 \
+    --w_poc 0.25
+```
+
+The script globally normalizes execution cost and Price of Clutter across the evaluated methods, computes LES using a weighted geometric mean, and prints both readable results and rows formatted for direct use in LaTeX tables.
+
 
 ## Reproducing the paper
 
